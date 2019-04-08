@@ -55,6 +55,20 @@ res.render('hello.html', {'name': req.body.pseudo})
 app.post('/bye', function(req, res) {
   res.render('bye.html',{'name_bye':req.body.pseudo} );
 });
+
+app.get('/:name/counter/',function(req, res) {
+  res.render('counter.html',{'name':req.params.name+", this is your first visit"
+              
+,'link': '/'+req.params.name+'/counter/1'} );
+
+});
+
+app.all('/:name/counter/:cnt',function(req, res) {
+  res.render('counter.html',{'name':req.params.name+", you have visited this page "+ parseInt(req.params.cnt) +" times"
+                            
+,'link':'/'+req.params.name+'/counter/'+(parseInt(req.params.cnt)+1)} ); 
+
+});
    
 app.listen(process.env.PORT);
 
