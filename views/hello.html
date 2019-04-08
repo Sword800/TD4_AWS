@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>A static file</title>
+  </head>
+  <body>
+    <p>Hello {{ name }} !</p>
+
+{% if red =='on'%}
+    
+       <style type="text/css">
+li {
+  color: red;
+}
+</style>
+    
+ <ul>
+ {% for c in colors %}
+  <li>{{ c }}</li>
+ {% endfor %}
+</ul>
+
+    
+  {% else %}
+    
+       <style type="text/css">
+li {
+  color: yellow;
+}
+</style>
+ <ul>
+ {% for c in colors2 %}
+  <li>{{ c }}</li>
+ {% endfor %}
+</ul>
+{% endif %}
+
+    
+     
+  </body>
+    
+</html>
